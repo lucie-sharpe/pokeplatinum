@@ -58,7 +58,7 @@ static BOOL ov27_022565D0(AppData *appData);
 static BOOL ov27_02256608(AppData *appData);
 static void ov27_02256654(AppData *appData);
 static void ov27_02256660(u32 param0, u32 param1, u32 param2, void *param3);
-static void ov27_02256664(AppData *appData);
+static void ResetLocalAppMemory(AppData *appData);
 static void ov27_02256680(AppData *appData);
 static void ov27_022566C4(AppData *appData);
 static void ov27_022566D8(AppData *appData, UnkStruct_ov27_0225680C_1 *param1);
@@ -108,7 +108,7 @@ static BOOL SetupAppData(AppData *appData, BgConfig *bgConfig, u32 appID)
             appData->unk_1C.unk_18 = 0;
         }
     } else {
-        ov27_02256664(appData);
+        ResetLocalAppMemory(appData);
         appData->unk_1C.unk_18 = 0;
     }
 
@@ -331,7 +331,7 @@ static BOOL ov27_02256534(AppData *appData)
         if (++(appData->unk_06) >= 60) {
             appData->unk_1C.unk_18 = 6;
             ov27_022569C8(appData->unk_60, 1);
-            ov27_02256664(appData);
+            ResetLocalAppMemory(appData);
             appData->unk_06 = 0;
             appData->unk_01++;
         }
@@ -395,10 +395,10 @@ static void ov27_02256660(u32 param0, u32 param1, u32 param2, void *param3)
     v0->unk_04 = param1;
 }
 
-static void ov27_02256664(AppData *appData)
+static void ResetLocalAppMemory(AppData *appData)
 {
-    appData->unk_1C.mem1 = 0;
-    appData->unk_1C.unk_04 = 1;
+    appData->unk_1C.mem1 = FALSE;
+    appData->unk_1C.unk_04 = TRUE;
     appData->unk_1C.mem5 = 0;
     appData->unk_1C.mem4 = 0;
     appData->unk_1C.mem3 = 0;

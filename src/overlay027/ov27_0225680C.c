@@ -11,8 +11,6 @@
 #include "overlay025/struct_ov25_02255810.h"
 #include "overlay025/struct_ov25_022558C4_decl.h"
 #include "overlay025/struct_ov25_02255958.h"
-#include "overlay027/struct_ov27_0225680C_1.h"
-#include "overlay027/struct_ov27_0225680C_decl.h"
 
 #include "bg_window.h"
 #include "graphics.h"
@@ -107,7 +105,7 @@ static void ov27_022568B4(UnkStruct_ov27_0225680C *param0)
 {
     u32 v0, v1;
 
-    CP_SetDiv32_32(param0->unk_00->unk_14, 10);
+    CP_SetDiv32_32(param0->unk_00->mem2, 10);
 
     v0 = CP_GetDivResult32();
     v1 = CP_GetDivRemainder32();
@@ -115,7 +113,7 @@ static void ov27_022568B4(UnkStruct_ov27_0225680C *param0)
     ov25_022558C4(param0->unk_60[0], 0 + v0);
     ov25_022558C4(param0->unk_60[1], 0 + v1);
 
-    CP_SetDiv32_32(param0->unk_00->unk_10, 10);
+    CP_SetDiv32_32(param0->unk_00->mem3, 10);
 
     v0 = CP_GetDivResult32();
     v1 = CP_GetDivRemainder32();
@@ -123,7 +121,7 @@ static void ov27_022568B4(UnkStruct_ov27_0225680C *param0)
     ov25_022558C4(param0->unk_60[2], 0 + v0);
     ov25_022558C4(param0->unk_60[3], 0 + v1);
 
-    CP_SetDiv32_32(param0->unk_00->unk_0C, 10);
+    CP_SetDiv32_32(param0->unk_00->mem4, 10);
 
     v0 = CP_GetDivResult32();
     v1 = CP_GetDivRemainder32();
@@ -131,7 +129,7 @@ static void ov27_022568B4(UnkStruct_ov27_0225680C *param0)
     ov25_022558C4(param0->unk_60[4], 0 + v0);
     ov25_022558C4(param0->unk_60[5], 0 + v1);
 
-    CP_SetDiv32_32(param0->unk_00->unk_08, 10);
+    CP_SetDiv32_32(param0->unk_00->mem5, 10);
 
     v0 = CP_GetDivResult32();
     v1 = CP_GetDivRemainder32();
@@ -206,7 +204,7 @@ static void ov27_02256A18(SysTask *param0, void *param1)
 
         ov27_022568B4(v3);
 
-        if (v4->unk_00) {
+        if (v4->mem1) {
             ov27_022569C8(v3, 1);
         }
     }
@@ -309,7 +307,7 @@ static void ov27_02256B24(UnkStruct_ov27_0225680C *param0, const UnkStruct_ov27_
 
     param0->unk_60[8] = ov25_02255810(param0->unk_5C, &v0[v1], &param0->unk_34);
 
-    if (param1->unk_00 == 0) {
+    if (param1->mem1 == 0) {
         ov25_02255914(param0->unk_60[8], 1);
     }
 }
